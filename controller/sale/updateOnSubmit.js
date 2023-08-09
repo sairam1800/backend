@@ -7,7 +7,9 @@ updateOnSubmit = async (req, res) => {
   sale_item.findById(r).exec((err, result) => {
     if (result) {
       result.number_of_items =
-        Number(result.number_of_items) + Number(req.body.no_of_items);
+        Number(result.number_of_items) + Number(req.body.number_of_items);
+      result.total = Number(result.total) + Number(req.body.total);
+      result.revenue = Number(result.revenue) + Number(req.body.revenue);
     }
     result.save((er, sav) => {
       if (er) return res.json(er);

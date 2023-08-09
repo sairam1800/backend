@@ -19,16 +19,12 @@ let user = new mongoose.Schema(
     password: {
       type: String,
       trim: true,
-      required: true,
+      // required: true,
     },
     isadmin: {
       type: Boolean,
-      default: 0,
+      default: false,
     },
-    // messages: {
-    //   type: Array,
-    //   default: [],
-    // },
   },
   { timestamps: true }
 );

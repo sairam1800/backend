@@ -12,13 +12,7 @@ let data = require("../controller/user/data");
 //signup
 router.post(
   "/signup",
-  [
-    check("name").isLength({ min: 1 }),
-    check("email").isEmail(),
-    check("password").isLength({
-      min: 1,
-    }),
-  ],
+  [check("name").isLength({ min: 1 }), check("email").isEmail()],
   signup
 );
 

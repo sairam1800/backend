@@ -11,7 +11,7 @@ const user = require("./router/user");
 const stock = require("./router/stock");
 const sale = require("./router/sale");
 const bill = require("./router/bill");
-// const db =require("./.env")
+const daily = require("./router/daily");
 
 mongoose
   .connect(process.env.db, {
@@ -42,6 +42,7 @@ app.use("/user", user);
 app.use("/sale", sale);
 app.use("/stock", stock);
 app.use("/bill", bill);
+app.use("/daily", daily);
 
 const port = process.env.PORT || 8000;
 

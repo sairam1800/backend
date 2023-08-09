@@ -1,11 +1,11 @@
-let bill = require("../../modules/bill");
+let daily = require("../../modules/daily");
 data = (req, res) =>
-  bill
+  daily
     .find({})
     .sort("-createdAt")
-    .exec(function (err, bills) {
+    .exec(function (err, dailyb) {
       if (err) return res.json(err);
-      else return res.json(bills);
+      else return res.json(dailyb);
     });
 
 module.exports = data;

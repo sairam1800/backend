@@ -10,7 +10,6 @@ isSignedIn = (req, res, next) => {
     exports.userdata = User;
     module.exports = User;
     // res.json(User);
-    console.log(User);
     next();
   });
 };
