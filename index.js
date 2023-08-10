@@ -28,7 +28,23 @@ mongoose
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({ origin: true }));
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE'
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
+// app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
