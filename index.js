@@ -50,7 +50,6 @@ const corsOpts = {
 app.use(cors(corsOpts));
 app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 200 }));
 
-app.use(cors({ origin: "http://localhost:8000", optionsSuccessStatus: 200 }));
 // app.use(cors({ origin: true }));
 app.use(express.json());
 app.use(function (req, res, next) {
