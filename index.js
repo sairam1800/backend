@@ -25,8 +25,10 @@ mongoose
   .catch((err) => console.log(err));
 
 // res.header("Access-Control-Allow-Origin", "true");
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 app.use(bodyParser.json());
@@ -52,14 +54,7 @@ app.options("*", cors({ origin: 'http://localhost:3000', optionsSuccessStatus: 2
 
 // app.use(cors({ origin: true }));
 app.use(express.json());
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 app.use("/user", user);
 app.use("/sale", sale);
 app.use("/stock", stock);
